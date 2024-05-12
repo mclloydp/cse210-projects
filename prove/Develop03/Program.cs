@@ -1,38 +1,38 @@
 using System;
-
 class Program
 {
     static void Main(string[] args)
     {
-        // Create a scripture object
-        Scripture john316 = new Scripture("John 3:16", "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
+        // Example scripture
+        Reference reference = new Reference("John", 3, 16);
+        string scriptureText = "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.";
+
+        // Create a Scripture object
+        Scripture scripture = new Scripture(reference, scriptureText);
 
         // Display the complete scripture
-        john316.Display();
+        Console.WriteLine(scripture.GetDisplayText());
+        Console.WriteLine("Press Enter to hide some words or type 'quit' to exit.");
 
-        // Prompt the user to press enter or type quit
-        Console.WriteLine("\nPress Enter to continue or type 'quit' to exit:");
-        string input = Console.ReadLine();
-
-        while (input != "quit")
+        // Main loop
+        while (!scripture.IsCompletelyHidden())
         {
-            // Hide a few random words
-            john316.HideRandomWords();
+            string input = Console.ReadLine().Trim().ToLower();
 
-            // Clear console and display the updated scripture
-            Console.Clear();
-            john316.Display();
-
-            // Check if all words are hidden
-            if (john316.AllWordsHidden())
+            if (input == "quit")
             {
-                Console.WriteLine("\nAll words hidden. Exiting...");
-                return;
+                break;
             }
-
-            // Prompt the user again
-            Console.WriteLine("\nPress Enter to continue or type 'quit' to exit:");
-            input = Console.ReadLine();
+            else
+            {
+                // Hide some random words
+                scripture.HideRandomWords(2); // Change the number as desired
+                Console.Clear();
+                Console.WriteLine(scripture.GetDisplayText());
+                Console.WriteLine("Press Enter to hide more words or type 'quit' to exit.");
+            }
         }
+
+        Console.WriteLine("Program ended.");
     }
 }
