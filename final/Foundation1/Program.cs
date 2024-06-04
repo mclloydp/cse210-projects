@@ -5,31 +5,31 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Foundation1 World!");
-        List<Video> videos = new List<Video>();
+        List<Video> _videos = new List<Video>();
 
         //Create videos
-        Video video1 = new Video("Video 1", "Auther 1", 300);
-        Video video2 = new Video("Video 2", "Auther 2", 600);
-        Video video3 = new Video("Video 3", "Auther 3", 900);
+        Video _video1 = new Video("Video 1", "Auther 1", 300);
+        Video _video2 = new Video("Video 2", "Auther 2", 600);
+        Video _video3 = new Video("Video 3", "Auther 3", 900);
 
         // Create and add coments to video1
-        video1.AddComment(new Comment("User1", "Great video!"));
-        video1.AddComment(new Comment("User2", "Thanks for sharing!"));
-        video1.AddComment(new Comment("User3", "Very informative!"));
+        _video1.AddComment(new Comment("User1", "Great video!"));
+        _video1.AddComment(new Comment("User2", "Thanks for sharing!"));
+        _video1.AddComment(new Comment("User3", "Very informative!"));
 
         //  Create and add coments to video2
-        video2.AddComment(new Comment("User4", "Loved it!"));
-        video2.AddComment(new Comment("User5", "Nice work!"));
-        video2.AddComment(new Comment("User6", "Awesome content!"));
+        _video2.AddComment(new Comment("User4", "Loved it!"));
+        _video2.AddComment(new Comment("User5", "Nice work!"));
+        _video2.AddComment(new Comment("User6", "Awesome content!"));
 
         // Create and add coments to video3
-        video3.AddComment(new Comment("User7", "Fantastic!"));
-        video3.AddComment(new Comment("User8", "Superb!"));
-        video3.AddComment(new Comment("User9", "Very well done."));
+        _video3.AddComment(new Comment("User7", "Fantastic!"));
+        _video3.AddComment(new Comment("User8", "Superb!"));
+        _video3.AddComment(new Comment("User9", "Very well done."));
 
         // Display video and comment information
 
-        foreach (var video in videos)
+        foreach (var video in _videos)
 
         {
             Console.WriteLine($"Title: {video._title}");
